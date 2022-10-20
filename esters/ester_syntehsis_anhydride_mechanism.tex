@@ -1,0 +1,65 @@
+\documentclass[border=1cm]{standalone}
+\usepackage{chemfig,chemmacros}
+
+% Make chemfig prettier
+\setchemfig{
+	fixed length=false,
+	double bond sep=0.35700em,  % 'Bond Spacing'
+	bond style={line width=0.06642em},
+	atomsep=1.78500em,    % 'Fixed Length'
+}
+\makeatletter
+\def\Hv@scale{.95}
+\makeatother
+\DeclareMathAlphabet{\foo}{OT1}{phv}{m}{n}
+\renewcommand*\printatom[1]{\ensuremath{\foo{#1}}}
+
+% Colors
+\definecolor{xgreen}{HTML}{52B256}
+\definecolor{brightblue}{HTML}{1E92FF}
+\colorlet{darkgreen}{xgreen!80!black}
+
+% Electron movements
+\tikzset{ el/.style={brightblue, -stealth, shorten >=3pt, shorten <=5pt}}
+
+% Color coded oxygens and charges
+\newcommand{\pol}[2][red]{$\color{#1} \delta^{#2}$}
+\newcommand{\ionplus}{\color{red}{\fplus}}
+\newcommand{\Or}{\color{red}{O}}
+\newcommand{\Ob}{\color{blue}{O}}
+\newcommand{\Og}{\color{darkgreen}{O}}
+
+% DOC
+\begin{document}
+\begin{centering}
+\schemestart
+{\chemfig{-[:30](=[:90]\Og)-[:330]\Og-[:30](-[:330])=[:90]@{O1}\charge{0=\:}{\Ob}-[:45,1.25,,,draw=none]@{H1}\charge{45:2pt=\ionplus}{H}}}
+\arrow{->[][]}[0, 2]
+\chemleft[\subscheme{\chemfig{-[:30](=[:90]\Og)-[:330]\Og-[:30](-[:330])=[@{b1}:90]@{O2}{\charge{120:6pt=\ionplus}{\Ob}}-[1,0.8]H}\arrow{<->}[-90, 0.75]\chemfig{-[:30](=[:90]\Og)-[:330]\Og-[:30]@{C1}\charge{270:8pt=\ionplus}{}(-[:330])-[:90]\Ob-[1,0.8]H}}\chemright]
+\arrow{->[][$\chemfig{@{O3}\charge{180=\:}{\Or}(-[1,0.8]H)-[-1,0.8]R}$][3pt]}[0, 2]
+\chemfig{-[:30](=[:90]\Og)-[:330]@{O5}\charge{270=\:}{\Og}-[:30](-[:330])(-[:270]@{O6}\charge{270:6pt=\ionplus}{\Or}([:330,0.8]-R)-[@{b2}:210,0.8]@{H2}H)-[:90]\charge{180=\:}{\Ob}H}
+\arrow{->[]}[270, 2]
+\chemfig{-[:30](=[:90]\Og)-[:330]@{O7}\charge{90:7pt=\ionplus}{\Og}(-[270,0.3,,,draw=none]H)-[@{b3}:30](-[:330])(-[:270]\Or([:330,0.8]-R))-[@{b4}:90]@{O8}\charge{180=\:}{\Ob}H}
+\arrow{->[]}[180, 2]
+\chemfig{-[:30](=[:90]\Og)-[:330]\Og H}
+\+{,,2em}
+\chemfig{-[:30](=[:90]@{O9}{\charge{120:6pt=\ionplus}{\Ob}}-[@{b5}:45,0.8]H)-[:330]\Or R}
+\arrow{->[]}[180, 2]
+\chemfig{-[:90,0.75,,,draw=none]\charge{45:2pt=\ionplus}{H}}
+\+{,,2em}
+\chemfig{-[:30](=[:90]\Og)-[:330]\Og H}
+\+{,,2em}
+\chemfig{-[:30](=[:90]\Ob)-[:330]\Or R}
+\schemestop
+\chemmove{
+	\draw[el] (O1) ..controls +(0:1cm) and +(180:1cm) .. (H1) ;
+	\draw[el] (b1) ..controls +(0:7mm) and +(0:7mm) .. (O2) ;
+	\draw[el] (O3) ..controls +(180:7mm) and +(0:7mm) .. (C1) ;
+	\draw[el] (O5) ..controls +(270:7mm) and +(90:7mm) .. (H2) ;
+	\draw[el, shorten >=1pt] (b2) ..controls +(90:5mm) and +(135:5mm) .. (O6) ;
+	\draw[el] (b3) ..controls +(270:7mm) and +(330:3mm) .. (O7) ;
+	\draw[el] (O8) ..controls +(180:7mm) and +(180:7mm) .. (b4) ;
+	\draw[el] (b5) ..controls +(0:5mm) and +(0:5mm) .. (O9) ;
+}
+\end{centering}
+\end{document}
