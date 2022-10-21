@@ -1,0 +1,17 @@
+\documentclass[border=1cm]{standalone}
+\input{settings}
+
+% Doc
+\begin{document}
+\begin{centering}
+\schemestart
+\chemname[5mm]{\chemfig{R_{1}-\Or H}}{Alcohol}
+\+
+\chemname[5mm]{\chemfig{R_{2}-[:30](=[:90]\Ob)-[:330]\Og H}}{Carboxylic acid}
+\arrow{->[\charge{45:3pt=\ionplus}{H}][(catalytic)][][]}[0, 1.6]
+\chemname[5mm]{\chemfig{R_{2}-[:30]([:90]=\Ob)-[:330]\Or R_{1}}}{Ester}
+\+
+\chemname[5mm]{\chemfig{H_{2}\Og}}{Water}
+\schemestop
+\end{centering}
+\end{document}
