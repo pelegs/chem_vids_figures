@@ -1,0 +1,30 @@
+\usepackage{chemfig,chemmacros}
+
+% Make chemfig prettier
+\setchemfig{
+	fixed length=false,
+	double bond sep=0.35700em,  % 'Bond Spacing'
+	bond style={line width=0.06642em},
+	atomsep=1.78500em,    % 'Fixed Length'
+}
+\makeatletter
+\def\Hv@scale{.95}
+\makeatother
+\DeclareMathAlphabet{\foo}{OT1}{phv}{m}{n}
+\renewcommand*\printatom[1]{\ensuremath{\foo{#1}}}
+
+% Colors
+\definecolor{xgreen}{HTML}{52B256}
+\definecolor{brightblue}{HTML}{1E92FF}
+\colorlet{darkgreen}{xgreen!80!black}
+
+% Electron movements
+\tikzset{ el/.style={brightblue, -stealth, shorten >=3pt, shorten <=5pt}}
+
+% Color coded oxygens and charges
+\newcommand{\pol}[2][red]{$\color{#1} \delta^{#2}$}
+\newcommand{\ionplus}{\color{red}{\fplus}}
+\newcommand{\Or}{\color{red}{O}}
+\newcommand{\Ob}{\color{blue}{O}}
+\newcommand{\Og}{\color{darkgreen}{O}}
+
