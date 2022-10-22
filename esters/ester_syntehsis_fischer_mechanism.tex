@@ -1,0 +1,36 @@
+\documentclass[border=1cm]{standalone}
+\input{settings}
+
+% Doc
+\begin{document}
+\begin{centering}
+\schemestart
+\chemfig{R_{1}-[:30](=[:90]@{O1}\charge{45=\:}{\Or}-[:30,1.3,,,draw=none]@{H1}\charge{45:5pt=\ionplus}{H})-[:330]\Or-[:30]H}
+\arrow
+\chemleft[\subscheme{\chemfig{R_{1}-[:30](=[@{b1}:90]@{O2}\charge{135:5pt=\ionplus}{\Or}-[:45]H)-[:330]\Or-[:30]H} \arrow{<->}[270] \chemfig{R_{1}-[:30]@{C1}\charge{270:7pt=\ionplus}{}(-[:90]\Or-[:45]H)-[@{b2,0.75}:330]@{O3}\charge{225=\:}{\Or}-[:30]H} \arrow{<->}[270] \chemfig{R_{1}-[:30](-[:90]\Or-[:45]H)=[:330]\charge{90:7pt=\ionplus}{\Or}-[:30]H}}\chemright]
+\arrow{<=>[\chemfig{@{O4}\charge{180=\:}{\Og}(-[:300]H)-[:60]R_{2}}]}[0, 1.5]
+\chemfig{R_{1}-[:30](-[:270]@{O5}\charge{135:4pt=\ionplus}{\Og}(-[:210]R_{2})-[@{b3}:330]@{H2}H)(-[:90]\Or-[:45]H)-[:330]@{O6}\charge{315:0.5pt=\:}{\Or}-[:30]H}
+\arrow{<=>}[0, 1.5]
+\chemfig{R_{1}-[:30](-[:270]\Og(-[:210]R_{2}))(-[@{b5}:90]@{O8}\charge{135=\:}{\Or}-[:45]H)-[@{b4}:330]@{O7}\charge{90:6pt=\ionplus}{\Or}(-[:315]H)-[:30]H}
+\arrow
+\chemfig{R_{1}-[:30](=[:90]@{O9}\charge{135:4pt=\ionplus}{\Or}-[@{b6}:45]H)-[:330]\Og-[:30]R_{2}}
+\+
+\chemfig{H_{2}\Or}
+\arrow{<=>}[0, 1.5]
+\chemfig{R_{1}-[:30](=[:90]\Or)-[:330]\Og-[:30]R_{2}}
+\+
+\chemfig{\charge{45:6pt=\ionplus}{H}}
+\schemestop
+\chemmove{
+	\draw[el] (O1) ..controls +(45:6mm) and +(180:6mm) .. (H1) ;
+	\draw[el] (b1) ..controls +(0:6mm) and +(0:6mm) .. (O2) ;
+	\draw[el] (O3) ..controls +(225:6mm) and +(225:6mm) .. (b2) ;
+	\draw[el] (O4) ..controls +(180:6mm) and +(45:6mm) .. (C1) ;
+	\draw[el] (b3) ..controls +(225:6mm) and +(270:6mm) .. (O5) ;
+	\draw[el] (O6) ..controls +(315:6mm) and +(45:6mm) .. (H2) ;
+	\draw[el] (b4) ..controls +(225:6mm) and +(225:6mm) .. (O7) ;
+	\draw[el] (O8) ..controls +(135:9mm) and +(180:6mm) .. (b5) ;
+	\draw[el] (b6) ..controls +(0:9mm) and +(0:6mm) .. (O9) ;
+}
+\end{centering}
+\end{document}

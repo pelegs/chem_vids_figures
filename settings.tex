@@ -25,17 +25,17 @@
 \definecolor{invgreen}{HTML}{BE71BA}
 \definecolor{invcyan}{HTML}{E16D00}
 
-\ifdefined\invertcol
-	\colorlet{col1}{invred}
-	\colorlet{col2}{invblue}
-	\colorlet{col3}{invgreen}
-	\colorlet{col4}{invcyan}
-\else
+% \ifdefined\invertcol
+% 	\colorlet{col1}{invred}
+% 	\colorlet{col2}{invblue}
+% 	\colorlet{col3}{invgreen}
+% 	\colorlet{col4}{invcyan}
+% \else
 	\colorlet{col1}{red}
 	\colorlet{col2}{blue}
 	\colorlet{col3}{darkgreen}
 	\colorlet{col4}{brightblue}
-\fi
+% \fi
 
 % Electron movements
 \tikzset{ el/.style={col4, -stealth, shorten >=3pt, shorten <=5pt}}
