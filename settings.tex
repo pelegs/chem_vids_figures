@@ -1,10 +1,12 @@
 \usepackage{chemfig,chemmacros}
+% \pagecolor{black}
+% \setchemfig{chemfig style=white}
 
 % Make chemfig prettier
 \setchemfig{
 	fixed length=false,
 	double bond sep=0.35700em,  % 'Bond Spacing'
-	bond style={line width=0.06642em},
+	bond style={line width=0.06642em, cap=round},
 	atomsep=1.78500em,    % 'Fixed Length'
 }
 \makeatletter
@@ -15,16 +17,31 @@
 
 % Colors
 \definecolor{xgreen}{HTML}{52B256}
-\definecolor{brightblue}{HTML}{1E92FF}
 \colorlet{darkgreen}{xgreen!80!black}
+\definecolor{brightblue}{HTML}{1E92FF}
+
+\definecolor{invred}{HTML}{25C3DA}
+\definecolor{invblue}{HTML}{FF7D00}
+\definecolor{invgreen}{HTML}{BE71BA}
+\definecolor{invcyan}{HTML}{E16D00}
+
+\ifdefined\invertcol
+	\colorlet{col1}{invred}
+	\colorlet{col2}{invblue}
+	\colorlet{col3}{invgreen}
+	\colorlet{col4}{invcyan}
+\else
+	\colorlet{col1}{red}
+	\colorlet{col2}{blue}
+	\colorlet{col3}{darkgreen}
+	\colorlet{col4}{brightblue}
+\fi
 
 % Electron movements
-\tikzset{ el/.style={brightblue, -stealth, shorten >=3pt, shorten <=5pt}}
+\tikzset{ el/.style={col4, -stealth, shorten >=3pt, shorten <=5pt}}
 
 % Color coded oxygens and charges
-\newcommand{\pol}[2][red]{$\color{#1} \delta^{#2}$}
-\newcommand{\ionplus}{\color{red}{\fplus}}
-\newcommand{\Or}{\color{red}{O}}
-\newcommand{\Ob}{\color{blue}{O}}
-\newcommand{\Og}{\color{darkgreen}{O}}
-
+\newcommand{\ionplus}{\color{col1}{\fplus}}
+\newcommand{\Or}{\color{col1}{O}}
+\newcommand{\Ob}{\color{col2}{O}}
+\newcommand{\Og}{\color{col3}{O}}
