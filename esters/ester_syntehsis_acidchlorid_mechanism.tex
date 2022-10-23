@@ -1,0 +1,29 @@
+\documentclass[border=1cm]{standalone}
+\input{settings}
+
+% Doc
+\begin{document}
+\begin{centering}
+\schemestart
+\chemfig{-[:30]@{C1}\charge{270:6pt=\deltaplus}{}(=[@{b1}:90]@{O1}\Or)-[:330]Cl}
+\arrow{->[][\chemfig{@{O2}\charge{180=\:}{\Ob}(-[:315,0.4]H)-[:45,0.4]R}]}[0, 1.5]
+\chemfig{-(-[@{b3}:90]@{O3}\charge{135:4pt=\ionminus, 180=\:}{\Or})(-[:270]\charge{135:4pt=\ionplus}{\Ob}(-[:210]H)-[:330]R)-[@{b2}]@{Cl1}Cl}
+\arrow{->}[0, 1.5]
+\chemfig{-[:30](=[:90]\Or)-[:330]@{O4}\charge{90:5pt=\ionplus}{\Ob}(-[@{b4}:330]@{H2}H)-[:30]R}
+\+
+\chemfig{@{Cl2}\charge{90:4pt=\ionminus}{Cl}}
+\arrow{->}[0, 1.5]
+\chemfig{-[:30](=[:90]\Or)-[:330]\Ob-[:30]R}
+\+
+\chemfig{H-Cl}
+\schemestop
+\chemmove{
+	\draw[el] (b1) ..controls +(0:6mm) and +(0:6mm) .. (O1) ;
+	\draw[el] (O2) ..controls +(180:6mm) and +(0:6mm) .. (C1) ;
+	\draw[el] (b2) ..controls +(270:6mm) and +(270:6mm) .. (Cl1) ;
+	\draw[el] (O3) ..controls +(180:6mm) and +(180:6mm) .. (b3) ;
+	\draw[el] (Cl2) ..controls +(270:6mm) and +(0:6mm) .. (H2) ;
+	\draw[el] (b4) ..controls +(270:6mm) and +(270:6mm) .. (O4) ;
+}
+\end{centering}
+\end{document}
